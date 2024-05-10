@@ -1,0 +1,40 @@
+/* nav {
+  background-color: rgb(22, 22, 22);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav .logo p {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+nav .list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  gap: 1rem;
+}
+nav .list li a {
+  display: block;
+  padding: 1.3rem;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+nav .list li a:hover {
+  background-color: white;
+  color: rgb(22, 22, 22);
+}
+
+a.active {
+  background-color: white !important;
+  color: rgb(22, 22, 22) !important;
+} */

@@ -1,0 +1,7 @@
+<label for=""> {{ title }}: &nbsp;</label>
+<select [name]="title" [id]="title" (change)="sendData($event)" class="rounded-3 py-2 pe-5 ps-2">
+  <option value="all">All</option>
+  <option [value]="item.nameCAt" *ngFor="let item of data">
+    {{ item.nameCAt }}
+  </option>
+</select>

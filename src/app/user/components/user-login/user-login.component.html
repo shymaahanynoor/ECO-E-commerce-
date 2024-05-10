@@ -1,0 +1,41 @@
+<!--------------------------------------alert---------------------------------------- -->
+
+<div #alertDiv class="alert alert-primary alert-dismissible fade show alert-div" role="alert">
+    <!-- This is a custom alert message. -->
+    <p #alertParagraph></p>
+   
+  </div>
+  
+  <!-- ---------------------------------------------------------------------------------- -->
+  
+  <form [formGroup]="userLoginForm" (ngSubmit)="Submit()">
+      <div class="container mt-3">
+          <div class="brand-logo"></div>
+          <div class="brand-title">IElectronics</div>
+          <div class="inputs">
+          
+            
+      
+            <label>USER EMAIL</label>
+            <input type="email" placeholder="example@test.com" name="userEmail" formControlName="userEmail"/>
+            <div [hidden]="userEmail()?.valid || userEmail()?.untouched">
+              <span *ngIf="userEmail()?.errors?.['required']">This Field is Required</span>
+              <span *ngIf="userEmail()?.errors?.['minLength']">Email Should be equal or more than 3 characters</span>
+              <span *ngIf="userEmail()?.errors?.['maxLength']">Email Should be equal or less than 255 characters</span>
+              <span *ngIf="userEmail()?.errors?.['email']">Enter Valid Email</span>
+            </div>
+  
+            <label>USER PASSWORD</label>
+            <input type="password" placeholder="Min 3 characters long" name="userPassword" formControlName="userPassword"/>
+            <div [hidden]="userPassword()?.valid || userPassword()?.untouched">
+              <span *ngIf="userPassword()?.errors?.['required']">This Field is Required</span>
+              <span *ngIf="userPassword()?.errors?.['minLength']">Password Should be equal or more than 3 characters</span>
+              <span *ngIf="userPassword()?.errors?.['maxLength']">Password Should be equal or less than 1024 characters</span>
+            </div>
+            
+            <button type="submit">Log In</button>
+          </div>
+          
+        </div>
+      </form>
+  

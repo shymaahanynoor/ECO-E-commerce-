@@ -1,0 +1,26 @@
+<div class="item" *ngIf="!loading">
+  <div class="container">
+    <div class="img">
+      <img [src]="myData.proImg" alt="s" />
+    </div>
+    <div class="details">
+      <ul>
+        <li>
+          Title: <span>{{ myData.proName }}</span>
+        </li>
+        <li>
+          Category: <span>{{ myData.proCategory }}</span>
+        </li>
+        <li>
+          Description: <span>{{ myData.proDescription }}</span>
+        </li>
+        <li>
+          Price: <span>{{ myData.proPrice }}</span> LE
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="mySpinner" *ngIf="loading">
+  <app-spinner></app-spinner>
+</div>

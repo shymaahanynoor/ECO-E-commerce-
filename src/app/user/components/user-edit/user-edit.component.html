@@ -1,0 +1,43 @@
+<!--------------------------------------alert---------------------------------------- -->
+
+<div #alertDiv class="alert alert-primary alert-dismissible fade show alert-div" role="alert">
+    <!-- This is a custom alert message. -->
+    <p #alertParagraph></p>
+    
+  </div>
+  
+  <!-- ---------------------------------------------------------------------------------- -->
+  
+
+  
+  <!-- The error message "Can't bind to 'formGroup' since it isn't a known property of 'form'" 
+    typically occurs when the ReactiveFormsModule is not imported or not registered correctly in its module. -->
+  
+    <form [formGroup]="userEditForm" (ngSubmit)="submit()">
+      <div class="container">
+          <div class="brand-logo"></div>
+          <div class="brand-title">IElectronics</div>
+          <div class="inputs">
+            <label>USER NAME</label>
+            <input type="text" name="userName" formControlName="userName"/>
+            <div [hidden]="userName()?.valid || userName()?.untouched">
+              <span *ngIf="userName()?.errors?.['required']">This Field is Required</span>
+              <span *ngIf="userName()?.errors?.['minLength']">Name Should be equal or more than 3 characters</span>
+              <span *ngIf="userName()?.errors?.['maxLength']">Name Should be equal or less than 50 characters</span>
+              <span *ngIf="userName()?.errors?.['pattern']">Enter characters Only</span>
+            </div>
+      
+           
+            <label>Profile Img</label>
+            <input type="text" name="img" formControlName="img"/>
+            <div [hidden]="img()?.valid || img()?.untouched">
+              <span *ngIf="img()?.errors?.['pattern']">Enter Valid URL</span>
+            </div>
+          
+            <button type="submit" [disabled]="userEditForm.invalid">Edit</button>
+          </div>
+          
+        </div>
+      </form>
+      
+       

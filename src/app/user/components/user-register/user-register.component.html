@@ -1,0 +1,61 @@
+<!--------------------------------------alert---------------------------------------- -->
+
+<div #alertDiv class="alert alert-primary alert-dismissible fade show alert-div" role="alert">
+    <!-- This is a custom alert message. -->
+    <p #alertParagraph></p>
+    
+  </div>
+  
+  <!-- ---------------------------------------------------------------------------------- -->
+  
+  <form [formGroup]="userRegisterForm" (ngSubmit)="submit()">
+  <div class="container">
+      <div class="brand-logo"></div>
+      <div class="brand-title">IElectronics</div>
+      <div class="inputs">
+        <label>USER NAME</label>
+                                                                        <!--still-->
+                                                                       <!--this is a bootstrap class can used with both reactive forms and template forms-->
+        <input type="text" name="userName" formControlName="userName" placeholder="Characters Only" [class.is-invalid]="userName()?.invalid" [class.is-valid]="userName()?.valid"/>
+        <!-- <span>{{userRegisterForm.get('userName')?.errors | json}}</span> -->
+        <!-- <span>{{userName()?.errors | json}}</span> -->
+        <div [hidden]="userName()?.valid || userName()?.untouched">
+          <span *ngIf="userName()?.errors?.['required']">This Field is Required</span>
+          <span *ngIf="userName()?.errors?.['minLength']">Name Should be equal or more than 3 characters</span>
+          <span *ngIf="userName()?.errors?.['maxLength']">Name Should be equal or less than 50 characters</span>
+          <span *ngIf="userName()?.errors?.['pattern']">Enter characters Only</span>
+        </div>
+  
+        <label>USER EMAIL</label>
+        <input type="email" placeholder="example@test.com" name="userEmail" formControlName="userEmail" [class.is-invalid]="userEmail()?.invalid" [class.is-valid]="userEmail()?.valid"/>
+        <div [hidden]="userEmail()?.valid || userEmail()?.untouched">
+          <span *ngIf="userEmail()?.errors?.['required']">This Field is Required</span>
+          <span *ngIf="userEmail()?.errors?.['minLength']">Email Should be equal or more than 3 characters</span>
+          <span *ngIf="userEmail()?.errors?.['maxLength']">Email Should be equal or less than 255 characters</span>
+          <span *ngIf="userEmail()?.errors?.['email']">Enter Valid Email</span>
+        </div>
+        
+        <label>USER PASSWORD</label>
+        <input type="password" placeholder="Min 3 characters long" name="userPassword" formControlName="userPassword" [class.is-invalid]="userPassword()?.invalid" [class.is-valid]="userPassword()?.valid"/>
+        <div [hidden]="userPassword()?.valid || userPassword()?.untouched">
+          <span *ngIf="userPassword()?.errors?.['required']">This Field is Required</span>
+          <span *ngIf="userPassword()?.errors?.['minLength']">Password Should be equal or more than 3 characters</span>
+          <span *ngIf="userPassword()?.errors?.['maxLength']">Password Should be equal or less than 1024 characters</span>
+        </div>
+        
+       
+  
+        <!-- <label>Are You Admin??</label>
+        <input type="checkbox" id="input_ckeckbox" name="isAdmin" formControlName="isAdmin"/> -->
+  
+        <button type="submit" [disabled]="userRegisterForm.invalid">Register</button>     <!--still-->
+      </div>
+      
+    </div>
+  </form>
+  
+  
+  
+  
+  
+  

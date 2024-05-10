@@ -1,0 +1,36 @@
+.item {
+  padding: 3rem 0;
+}
+.item .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.item .container .img {
+  width: 49%;
+  text-align: center;
+}
+.item .container .img img {
+  width: 70%;
+}
+.item .container .details {
+  width: 49%;
+}
+.item .container .details ul {
+  list-style: none;
+  width: 100%;
+}
+.item .container .details li {
+  padding: 12px;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+.item .container .details li span {
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.mySpinner {
+  padding-top: 30px;
+  text-align: center;
+}

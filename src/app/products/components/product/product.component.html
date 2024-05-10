@@ -1,0 +1,84 @@
+
+  <div class="box" [id]="data._id">
+    <div class="img" routerLink="/details/{{ data._id }}">
+      <img class="card-img-top  " height="400px" width="90%" alt="Card image cap" [src]="data.proImg"  />
+    </div>
+    <div class="content card-body  mb-0">
+      <div class="head" routerLink="/details/{{ data._id }}">
+        <h5 class="card-title">{{ data.proName }}</h5>
+      </div>
+      <div class="text">
+        <p class="card-text">{{ data.proDescription }}</p>
+        <div class="btns">
+          <button *ngIf="!addStatus" (click)="addStatus = true" class="btn btn-warning">Add to Cart</button>
+          <div class="numOfItem" *ngIf="addStatus">
+            <input
+              onkeydown="return false"
+              min="1"
+              type="number"
+              name=""
+              id=""
+              value="1"
+              style="width: 100px; padding: 6px; margin-right: 4px"
+              [(ngModel)]="amount"
+            />
+  
+            <button (click)="addItemToCart($event)" class="btn btn-warning">Add to Cart</button>
+          </div>
+          <span class="ps-3 text-danger">{{ data.proPrice }}$</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- 
+
+  <div class="box mt-5" >
+    <div class="row g-3 align-items-stretch" >
+       <div class="card col-md-4 pt-3 border-0 align-self-stretch" *ngFor="let item of products">
+        <div class="pt-3  card flex-fill ">
+            <img class="card-img-top  " src={{item.proImg}} height="400px" width="90%" alt="Card image cap">
+            <div class="card-body  mb-0">
+              <h5 class="card-title">{{item.proName}}</h5>
+              <p class="card-text">{{item.proDescription}}</p>
+              <a href="#" class="btn btn-warning">Add to Cart</a>
+              <span class="ps-3 text-danger">{{item.proPrice}}$</span>
+            </div>
+        </div>
+    
+    </div>
+    </div>
+    
+    </div> -->
+
+<!-- <div class="box" [id]="data._id">
+  <div class="img" routerLink="/details/{{ data._id }}">
+    <img [src]="data.proImg" alt="" />
+  </div>
+  <div class="content">
+    <div class="head" routerLink="/details/{{ data._id }}">
+      <h2>{{ data.proName }}</h2>
+    </div>
+    <div class="text">
+      <p>{{ data.proDescription }}</p>
+      <div class="btns">
+        <button *ngIf="!addStatus" (click)="addStatus = true">Add</button>
+        <div class="numOfItem" *ngIf="addStatus">
+          <input
+            onkeydown="return false"
+            min="1"
+            type="number"
+            name=""
+            id=""
+            value="1"
+            style="width: 100px; padding: 6px; margin-right: 4px"
+            [(ngModel)]="amount"
+          />
+
+          <button (click)="addItemToCart($event)">Add</button>
+        </div>
+        <span>{{ data.proPrice }}</span>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,85 @@
+<div
+  *ngIf="orderProducts.length == 0"
+  style="width: 50%; margin: 20px auto; text-align: center"
+>
+<div class="row align-items-center elimg">
+  <img class="img-fluid w-75" src="../../../../assets/img/empty.jpeg" alt="" />
+</div>
+  <h4>Order Is Empty</h4>
+  <a class="btn btn-primary" href="/cart">Go To Cart</a>
+
+</div>
+<div class="container" style="width: 100%" *ngIf="orderProducts.length != 0">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h1 class="text-center">Order Details</h1>
+      <div class="row align-items-center mb-4">
+        <div class="col-md-6">
+          <p>
+            You Have <span>{{ orderProducts.length }}</span> products In Your
+            order
+          </p>
+        </div>
+      </div>
+      <table class="table" style="width: 100%">
+        <thead>
+          <tr>
+            <th>Img</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of orderProducts; let i = index">
+            <td><img [src]="item.proImg" alt="" style="max-width: 100px" /></td>
+            <td>{{ item.proName }}</td>
+            <td>
+              <span>{{ item.proPrice }}</span> LE
+            </td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.createdAt }}</td>
+            <td *ngIf="item.orderStatus=='rejected'" ><span class="btn btn-danger">rejected</span></td>
+            <td *ngIf="item.orderStatus=='accepted'" class="btn-success"><span class="btn btn-success ">Accepted</span></td>
+            <td *ngIf="item.orderStatus=='pending'" class="btn-warning"><span class="btn btn-warning">Pending</span></td>
+            <td>
+              <button
+                class="btn btn-danger"
+                (click)="deleteCurrentItem(item.proId)"
+                [disabled]="item.orderStatus!='pending'">
+                Delete
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row justify-content-end">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <p class="card-text">
+                totalPrice <span>{{ total }}</span>
+              </p>
+              <a class="btn btn-success btn-block" href="/payment">
+                Check Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container mt-3">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="alert alert-success" role="alert" *ngIf="status">
+        Data Sent Successfully!
+      </div>
+    </div>
+  </div>
+</div>
