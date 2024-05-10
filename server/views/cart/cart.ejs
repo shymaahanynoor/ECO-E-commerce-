@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../cartStatic/css/mainCart.css"
+    />
+  </head>
+  <style></style>
+  <body>
+    <!-- ---------------- -->
+    <%- include('../../public/Components/navbar.ejs', {currentPage:"cart"}) %>
+    <!-- ---------------- -->
+    <table>
+      <thead>
+        <tr>
+          <th>proImg</th>
+          <th>proId</th>
+          <th>proName</th>
+          <th>proDescription</th>
+          <th>proCategory</th>
+          <th>proPrice</th>
+          <th>Control</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for( let index = 0; index < allCartPro.length; index++ ) { %>
+        <tr>
+          <td><img src="<%= allCartPro[index].proImg%>" alt="" /></td>
+          <td><%= allCartPro[index].proId%></td>
+          <td><%= allCartPro[index].proName%></td>
+          <td><%= allCartPro[index].proDescription%></td>
+          <td><%= allCartPro[index].proCategory%></td>
+          <td><%= allCartPro[index].proPrice%></td>
+          <td>
+            <a href="#">Up </a>
+            <a href="/api/v1/cart/del/<%= allCartPro[index]._id%>">De</a>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </body>
+</html>

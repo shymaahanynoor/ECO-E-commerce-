@@ -1,0 +1,36 @@
+<!-- to run this page : http://localhost:3000/index.html -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>User registration</h2>
+    <form id="registration-form" action="/register" method="POST">
+    <label for="userName">user Name:</label>
+    <input type="text" id="user-Name-input" name="userName" required><br><br>
+
+      <label for="userEmail">user Email:</label>
+      <input type="email" id="user-Email-input" name="userEmail" required><br><br>
+  
+      <label for="userPassword">user Password:</label>
+      <input type="password" id="user-Password" name="userPassword" required><br><br>
+
+      <label for="isAdmin">enter true or false</label>
+      <input type="text" id="isAdmin-input" name="isAdmin" required><br><br>
+  
+      <input type="submit" value="register">
+    </form>
+    <br>
+    
+
+
+
+ <script src="script.js"></script>   
+</body>
+</html>

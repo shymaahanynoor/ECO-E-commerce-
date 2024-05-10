@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+ <table id="user-profile-table" border="black 1px solid">
+<tr>
+    <th>user Name</th>
+    <th>user Email</th>
+</tr>
+<tr>
+    <td id="user-name-td"></td>
+    <td id="user-email-td"></td>
+</tr>
+ </table><br><br><br>
+    
+
+<button id="update-profile-button">Update your profile</button>
+
+                                                 <!-- don't forget that form take two methods only  -->
+                                                 <!-- post or get -->
+<form id="update-profile-form" action="/profile " method="post">
+    <label for="userName">user Name:</label>
+    <input type="text" id="user-Name-input" name="userName" required><br><br>
+
+      <label for="userEmail">user Email:</label>
+      <input type="email" id="user-Email-input" name="userEmail" required><br><br>
+  
+      <label for="userPassword">user Password:</label>
+      <input type="password" id="user-Password" name="userPassword" required><br><br>
+
+      <label for="isAdmin">enter true or false</label>
+      <input type="text" id="isAdmin-input" name="isAdmin" required><br><br>
+  
+      <input type="submit" value="update">
+</form>
+
+
+
+<script src="profile.js"></script>    
+</body>
+</html>
