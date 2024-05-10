@@ -1,0 +1,43 @@
+<div class="container">
+  <div *ngIf="showAlert" [ngClass]="['alert', 'alert-' + alertType, 'alert-dismissible', 'fade', 'show']" role="alert">
+    <i *ngIf="alertType==='danger'" class="fas fa-exclamation-triangle me-2"></i>
+    <i *ngIf="alertType==='success'" class="fas fa-check-circle me-2"></i>
+    {{ alertMessage }}
+    <button type="button" class="btn-close" aria-label="Close" (click)="hideAlert()"></button>
+  </div>
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="text-center mb-4">Add Product</h2>
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="animated-form">
+        <div class="mb-3">
+          <label for="proName" class="form-label">Product Name</label>
+          <input type="text" class="form-control" id="proName" formControlName="proName" (blur)="validateField('proName')">
+          <div *ngIf="isFieldInvalid('proName')" class="text-danger">Product Name is required and must be at least 3 characters long</div>
+        </div>
+        <div class="mb-3">
+          <label for="proDescription" class="form-label">Description</label>
+          <textarea class="form-control" id="proDescription" formControlName="proDescription" (blur)="validateField('proDescription')"></textarea>
+          <div *ngIf="isFieldInvalid('proDescription')" class="text-danger">Description is required and must be at least 5 characters long</div>
+        </div>
+        <div class="mb-3">
+          <label for="proCategory" class="form-label">Category</label>
+          <input type="text" class="form-control" id="proCategory" formControlName="proCategory" (blur)="validateField('proCategory')">
+          <div *ngIf="isFieldInvalid('proCategory')" class="text-danger">Category is required and must be at least 2 characters long</div>
+        </div>
+        <div class="mb-3">
+          <label for="proPrice" class="form-label">Price</label>
+          <input type="number" class="form-control" id="proPrice" formControlName="proPrice" (blur)="validateField('proPrice')">
+          <div *ngIf="isFieldInvalid('proPrice')" class="text-danger">Price is required and must be a valid number</div>
+        </div>
+        <div class="mb-3">
+          <label for="proImg" class="form-label">Image URL</label>
+          <input type="text" class="form-control" id="proImg" formControlName="proImg" (blur)="validateField('proImg')">
+          <div *ngIf="isFieldInvalid('proImg')" class="text-danger">Image URL is required</div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary w-75 mt-4">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

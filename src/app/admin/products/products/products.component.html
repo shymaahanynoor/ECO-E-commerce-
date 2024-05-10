@@ -1,0 +1,33 @@
+<!-- product-list.component.html -->
+<div class="table-responsive">
+  <table class="table table-striped table-bordered my-3 table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th colspan="2" class="text-center">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products">
+        <td>{{ product._id }}</td>
+        <td>{{ product.proName }}</td>
+        <td>{{ product.proDescription }}</td>
+        <td>{{ product.proCategory }}</td>
+        <td>{{ product.proPrice }}</td>
+        <td><img [src]="product.proImg" alt="{{ product.proName }}" width="50" height="50"></td>
+        <td class="text-center">
+          <button (click)="editProduct(product._id)" class="btn btn-primary btn-sm">Edit</button>
+        </td>
+        <td class="text-center">
+          <button (click)="deleteProduct(product._id)" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<button (click)="addNewProduct()" class="btn btn-success my-3">Add New Product</button>

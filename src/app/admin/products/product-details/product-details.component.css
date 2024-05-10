@@ -1,0 +1,44 @@
+/* Custom styles */
+.container {
+  margin-top: 50px;
+}
+
+.form-control {
+  border: 1px solid #ced4da; /* Add border to form controls */
+}
+
+.btn-primary {
+  background-color: #007bff; /* Change primary button color */
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Change primary button color on hover */
+  border-color: #0056b3;
+}
+/* Custom styles */
+.animated-form {
+  border: 2px solid #007bff; /* Add border to form */
+  border-radius: 10px; /* Add border radius for rounded corners */
+  padding: 20px; /* Add padding inside the form */
+  transition: border-color 0.3s; /* Add transition effect for border color change */
+}
+
+.animated-form:hover {
+  border-color: #0056b3; /* Change border color on hover */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-form {
+  animation: fadeIn 0.5s ease; /* Apply fade-in animation to the form */
+}

@@ -1,0 +1,100 @@
+<div
+  *ngIf="cartProducts.length == 0"
+  style="width: 50%; margin: 20px auto; text-align: center"
+>
+  <div class="row align-items-center elimg">
+    <img
+      class="img-fluid w-75"
+      src="../../../../assets/img/empty.jpeg"
+      alt=""
+    />
+  </div>
+  <h4>Cart Is Empty</h4>
+  <a class="btn btn-primary" href="/product">Go To Products</a>
+</div>
+<div class="cart" *ngIf="cartProducts.length != 0">
+  <div class="container">
+    <div class="heading">
+      <h1>Shopping Cart</h1>
+      <div class="deleteAll">
+        <p>
+          You Have <span>{{ cartProducts.length }}</span> Item In Your Cart
+        </p>
+        <button
+          class="deleteAllBtn btn btn-warning text-white"
+          (click)="deleteAllFun()"
+        >
+          Clear Shopping Cart
+        </button>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Price</th>
+          <th></th>
+          <th>Quantity</th>
+          <th></th>
+          <th>Total</th>
+          <th>Delete</th>
+          <th>Buy</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartProducts; let i = index">
+          <td><img [src]="item.proImg" alt="" /></td>
+          <td>{{ item.proName }}</td>
+          <td>
+            <span>{{ item.proPrice }}</span> LE
+          </td>
+          <td>
+            <div class="add bg-success rounded-2" (click)="plusItem(item)">
+              +
+            </div>
+          </td>
+          <td>
+            <input
+              class="rounded-2 border-0 bg-secondary text-white"
+              type="number"
+              disabled
+              [(ngModel)]="item.quantity"
+            />
+          </td>
+
+          <td>
+            <div class="del bg-danger rounded-2" (click)="minItem(item)">-</div>
+          </td>
+          <td>{{ item.proPrice * item.quantity }}</td>
+          <td>
+            <button
+              class="delBtn btn btn-danger"
+              (click)="deleteCurrentItem(item.proId)"
+            >
+              Delete
+            </button>
+          </td>
+          <td>
+            <button class="delBtn btn btn-success" routerLink="/order">
+              <a (click)="addFromCartToOrder(item)" href="/order">buy</a>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="submited">
+      <p>
+        Total <span>{{ total }}</span>
+      </p>
+      <!-- <button routerLink="/order">
+        <a (click)="addCartToOrder()">Order Now</a>
+      </button> -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="dataSent" *ngIf="status">!Data Sent Successfuly</div>
+</div>

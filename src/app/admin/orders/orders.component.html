@@ -1,0 +1,44 @@
+<!-- orders-list.component.html -->
+<div class="filter-container">
+  <label for="filterStatus">Filter by Status:</label>
+  <select id="filterStatus" [(ngModel)]="selectedStatus">
+    <option value="">All</option>
+    <option *ngFor="let status of orderStatuses" [value]="status">{{ status }}</option>
+  </select>
+</div>
+<div *ngIf="showAlert" [ngClass]="['alert', 'alert-' + alertType, 'alert-dismissible', 'fade', 'show']" role="alert">
+  <i *ngIf="alertType==='danger'" class="fas fa-exclamation-triangle me-2"></i>
+  <i *ngIf="alertType==='success'" class="fas fa-check-circle me-2"></i>
+  {{ alertMessage }}
+  <button type="button" class="btn-close" aria-label="Close" (click)="hideAlert()"></button>
+</div>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered my-3 table-hover">
+    <thead class="table-dark">
+      <tr>
+        <th class="bold">No.</th>
+        <th>User Email</th>
+        <th>Date</th>
+        <th>Total Price</th>
+        <th>Product Title</th>
+        <th>State</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Loop through orders and apply filtering -->
+      <tr *ngFor="let order of filteredOrders; let i=index">
+        <td>{{ i+1 }}</td>
+        <td>{{ order.userEmail }}</td>
+        <td>{{ order.date | date }}</td>
+        <td>{{ order.totalPrice }}</td>
+        <td>{{ order.productTitle }}</td>
+        <td>
+          <select [(ngModel)]="order.state" (change)="confirmStateChange(order,i+1)">
+            <option *ngFor="let status of orderStatuses" [value]="status">{{ status }}</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

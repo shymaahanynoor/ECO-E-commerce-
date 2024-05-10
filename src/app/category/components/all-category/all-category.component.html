@@ -1,0 +1,22 @@
+<div class="box mt-5">
+  <div class="row g-3 align-items-stretch">
+    <div
+      class="card col-md-4 pt-3 border-0 align-self-stretch"
+      *ngFor="let item of allCategory"
+    >
+      <div class="pt-3 card flex-fill">
+        <img
+          class="card-img-top"
+          src="{{ item.img }}"
+          height="400px"
+          width="90%"
+          alt="Card image cap"
+        />
+        <div class="card-body mb-0">
+          <h5 class="card-title">{{ item.nameCAt }}</h5>
+          <a href="/product" class="btn btn-warning">Go To Products</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

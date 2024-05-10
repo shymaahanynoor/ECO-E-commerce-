@@ -1,0 +1,87 @@
+.cart {
+  padding: 70px 0 30px;
+}
+.cart .container {
+  padding: 1rem;
+  /* border: 1px solid black; */
+  border-radius: 12px;
+}
+.cart .container .heading {
+  margin-bottom: 1rem;
+}
+.cart .container .heading h2 {
+}
+.cart .container .heading p {
+}
+.cart .container table {
+  width: 100%;
+  text-align: center;
+  border-collapse: separate;
+  margin-bottom: 1rem;
+}
+.cart .container table tr th,
+.cart .container table tr td {
+  padding: 6px;
+}
+input {
+  width: 100%;
+  padding: 8px;
+  text-align: center;
+}
+.add,
+.del {
+  width: 25px;
+  height: 25px;
+  /* background-color: green; */
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+.del {
+  /* background-color: rgb(173, 0, 0); */
+}
+.cart .container .submited {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-bottom: 1px solid black;
+}
+.cart .container .submited p {
+}
+.cart .container .submited button {
+  padding: 12px 24px;
+}
+img {
+  width: 50px;
+  vertical-align: middle;
+}
+.delBtn {
+  padding: 8px;
+  cursor: pointer;
+}
+.deleteAll {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.deleteAllBtn {
+  padding: 12px;
+  cursor: pointer;
+  /* background-color: red; */
+  color: white;
+  /* font-weight: bold; */
+}
+.dataSent {
+  padding: 1rem;
+  border: 1px solid green;
+  border-radius: 12px;
+  background-color: rgb(37, 174, 37);
+  color: white;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
